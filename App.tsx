@@ -15,10 +15,6 @@ import { colors } from "./src/styles/colors";
  * 2. AppProvider - Context API para estado global
  * 3. Routes - Sistema de navegação
  * 4. StatusBar - Barra de status
- *
- *
- *
- *
  */
 export default function App() {
   return (
