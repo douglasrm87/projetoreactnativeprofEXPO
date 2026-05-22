@@ -8,6 +8,25 @@ import Routes from "./src/navigation";
 import { colors } from "./src/styles/colors";
 
 /**
+ 
+npx expo start
+npx expo start --web
+
+npm install
+npx expo start --tunnel
+
+Endereço ngrok
+ Metro waiting on exp://tsal5dc-anonymous-8081.exp.direct
+› Scan the QR code above with Expo Go (Android) or the Camera app (iOS)
+
+Incompativel - Expo Go com SDK 54 e Projeto criado no Github com SDK 51.
+  npx expo install expo@latest
+  npm install
+  npx expo start --tunnel
+  npx expo start --clear
+  EXPO_NO_DEVTOOLS=1 npx expo start --clear --tunnel
+
+* 
  * Componente App - Ponto de entrada da aplicação
  *
  * Estrutura:

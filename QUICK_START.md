@@ -1,6 +1,7 @@
 # ⚡ Início Rápido - 5 Minutos
 
 ## 🎯 Seu objetivo
+
 Rodar o app React Native no seu celular em 5 minutos.
 
 ---
@@ -25,6 +26,7 @@ npm install
 ```
 
 Espere terminar. Você verá:
+
 ```
 added 1234 packages
 ```
@@ -36,6 +38,7 @@ npm start
 ```
 
 Espere até ver algo assim:
+
 ```
 LAN: exp://192.168.x.x:8081
 Tunnel: ...
@@ -48,7 +51,7 @@ Tunnel: ...
 3. Espere 30-60 segundos
 4. **Pronto! 🎉**
 
----
+## npx expo start --web
 
 ## 🆘 Algo Deu Errado?
 
@@ -92,13 +95,13 @@ Pressione `r` no terminal para recarregar.
 
 ## 📱 Atalhos Úteis no App
 
-| O que fazer | Como |
-|------------|------|
-| Recarregar | Pressione `r` no terminal |
-| Ver erros | Agite o celular → "Show Logs" |
-| Parar servidor | Pressione `Ctrl+C` no terminal |
-| Modo tunnel | `npm run start:tunnel` |
-| Web (teste no PC) | `npm run start:web` |
+| O que fazer       | Como                           |
+| ----------------- | ------------------------------ |
+| Recarregar        | Pressione `r` no terminal      |
+| Ver erros         | Agite o celular → "Show Logs"  |
+| Parar servidor    | Pressione `Ctrl+C` no terminal |
+| Modo tunnel       | `npm run start:tunnel`         |
+| Web (teste no PC) | `npm run start:web`            |
 
 ---
 
@@ -107,6 +110,7 @@ Pressione `r` no terminal para recarregar.
 Se chegou aqui e o app está funcionando no seu celular, parabéns! 🎉
 
 Agora você pode:
+
 - ✅ Modificar código em tempo real
 - ✅ Aprender React Native
 - ✅ Compartilhar o app com colegas
