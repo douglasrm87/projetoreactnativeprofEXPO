@@ -9,4 +9,8 @@ export interface User {
 export type RootStackParamList = {
   Home: undefined;
   Login: undefined;
+  Nutrition: undefined;
+  GenerativeAI: undefined;
+  RNFlutterCuriosities: undefined;
+  TechMarket: undefined;
 };

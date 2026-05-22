@@ -1,46 +1,48 @@
 // Tela Home - Exemplo de Alô Mundo!
 
-import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  Alert,
-} from 'react-native';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Header } from '../../components/Header';
-import { Button } from '../../components/Button';
-import { useApp } from '../../context';
-import { useCounter } from '../../hooks';
-import { colors } from '../../styles/colors';
-import { RootStackParamList } from '../../types';
+import React from "react";
+import { View, Text, StyleSheet, ScrollView, Alert } from "react-native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { Header } from "../../components/Header";
+import { Navbar } from "../../components/Navbar";
+import { Button } from "../../components/Button";
+import { useApp } from "../../context";
+import { useCounter } from "../../hooks";
+import { colors } from "../../styles/colors";
+import { RootStackParamList } from "../../types";
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
+type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 
 export function HomeScreen({ navigation }: Props) {
-  const { user } = useApp();
-  const { count, increment, decrement, reset } = useCounter(0);
+  const { user } = useApp(); // Acessa o usuário autenticado do contexto
 
+  // Funções do contador: increment (soma 1), decrement (subtrai 1), reset (volta para 0)
+  const { count, increment, decrement, reset } = useCounter(0); // Exemplo de uso do hook useCounter
+
+  // Função para mostrar um alerta de Alô Mundo
   const handleAlert = () => {
     Alert.alert(
-      'Alô Mundo! 👋',
-      'Bem-vindo ao exemplo de React Native com Expo!\n\nEste é um projeto educacional para alunos de ADS.',
-      [{ text: 'OK' }]
+      "Alô Mundo! 👋",
+      "Bem-vindo ao exemplo de React Native com Expo!\n\nEste é um projeto educacional para alunos de ADS.",
+      [{ text: "OK" }],
     );
   };
 
   return (
     <View style={styles.container}>
       <Header title="Alô Mundo!" />
-      
+      <Navbar
+        activeRoute="Home"
+        onNavigate={(route) => navigation.navigate(route as any)}
+      />
+
       <ScrollView style={styles.content}>
         {/* Seção de Boas-vindas */}
         <View style={styles.section}>
           <Text style={styles.title}>Bem-vindo ao React Native! 🚀</Text>
           <Text style={styles.description}>
-            Este é um exemplo básico de projeto React Native com Expo.
-            Uma ótima forma para aprender os conceitos fundamentais.
+            Este é um exemplo básico de projeto React Native com Expo. Uma ótima
+            forma para aprender os conceitos fundamentais.
           </Text>
         </View>
 
@@ -49,8 +51,13 @@ export function HomeScreen({ navigation }: Props) {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Informações do Usuário</Text>
             <View style={styles.userInfo}>
-              <Text style={styles.label}>Nome: <Text style={styles.value}>{user.name}</Text></Text>
-              <Text style={styles.label}>Email: <Text style={styles.value}>{user.email}</Text></Text>
+              <Text style={styles.label}>
+                {/* Exibe o nome do usuário autenticado */}
+                Nome: <Text style={styles.value}>{user.name}</Text>
+              </Text>
+              <Text style={styles.label}>
+                Email: <Text style={styles.value}>{user.email}</Text>
+              </Text>
             </View>
           </View>
         ) : (
@@ -69,7 +76,11 @@ export function HomeScreen({ navigation }: Props) {
             <Text style={styles.counterValue}>{count}</Text>
           </View>
           <Button title="Incrementar (+)" onPress={increment} />
-          <Button title="Decrementar (-)" onPress={decrement} variant="secondary" />
+          <Button
+            title="Decrementar (-)"
+            onPress={decrement}
+            variant="secondary"
+          />
           <Button title="Resetar" onPress={reset} variant="secondary" />
         </View>
 
@@ -80,31 +91,42 @@ export function HomeScreen({ navigation }: Props) {
             <Text style={styles.structureLabel}>📁 src/</Text>
           </Text>
           <Text style={styles.structureItem}>
-            {'\u2502'} <Text style={styles.structureLabel}>├── components/</Text> - Componentes reutilizáveis
+            {"\u2502"}{" "}
+            <Text style={styles.structureLabel}>├── components/</Text> -
+            Componentes reutilizáveis
           </Text>
           <Text style={styles.structureItem}>
-            {'\u2502'} <Text style={styles.structureLabel}>├── screens/</Text> - Telas da aplicação
+            {"\u2502"} <Text style={styles.structureLabel}>├── screens/</Text> -
+            Telas da aplicação
           </Text>
           <Text style={styles.structureItem}>
-            {'\u2502'} <Text style={styles.structureLabel}>├── navigation/</Text> - Configuração de rotas
+            {"\u2502"}{" "}
+            <Text style={styles.structureLabel}>├── navigation/</Text> -
+            Configuração de rotas
           </Text>
           <Text style={styles.structureItem}>
-            {'\u2502'} <Text style={styles.structureLabel}>├── hooks/</Text> - Hooks customizados
+            {"\u2502"} <Text style={styles.structureLabel}>├── hooks/</Text> -
+            Hooks customizados
           </Text>
           <Text style={styles.structureItem}>
-            {'\u2502'} <Text style={styles.structureLabel}>├── context/</Text> - Context API
+            {"\u2502"} <Text style={styles.structureLabel}>├── context/</Text> -
+            Context API
           </Text>
           <Text style={styles.structureItem}>
-            {'\u2502'} <Text style={styles.structureLabel}>├── services/</Text> - Chamadas de API
+            {"\u2502"} <Text style={styles.structureLabel}>├── services/</Text>{" "}
+            - Chamadas de API
           </Text>
           <Text style={styles.structureItem}>
-            {'\u2502'} <Text style={styles.structureLabel}>├── styles/</Text> - Temas e cores
+            {"\u2502"} <Text style={styles.structureLabel}>├── styles/</Text> -
+            Temas e cores
           </Text>
           <Text style={styles.structureItem}>
-            {'\u2502'} <Text style={styles.structureLabel}>├── utils/</Text> - Funções utilitárias
+            {"\u2502"} <Text style={styles.structureLabel}>├── utils/</Text> -
+            Funções utilitárias
           </Text>
           <Text style={styles.structureItem}>
-            {'\u2514'} <Text style={styles.structureLabel}>└── types/</Text> - Tipagens TypeScript
+            {"\u2514"} <Text style={styles.structureLabel}>└── types/</Text> -
+            Tipagens TypeScript
           </Text>
         </View>
 
@@ -113,15 +135,13 @@ export function HomeScreen({ navigation }: Props) {
           <Button title="Mostrar Alô Mundo!" onPress={handleAlert} />
           <Button
             title="Ir para Login"
-            onPress={() => navigation.navigate('Login')}
+            onPress={() => navigation.navigate("Login")}
             variant="secondary"
           />
         </View>
 
         <View style={styles.footer}>
-          <Text style={styles.footerText}>
-            Projeto Educacional - ADS 2024
-          </Text>
+          <Text style={styles.footerText}>Projeto Educacional - ADS 2024</Text>
         </View>
       </ScrollView>
     </View>
@@ -145,13 +165,13 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: colors.primary,
     marginBottom: 8,
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: "600",
     color: colors.primary,
     marginBottom: 12,
   },
@@ -171,12 +191,12 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   value: {
-    fontWeight: '600',
+    fontWeight: "600",
     color: colors.primary,
   },
   counterContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     paddingVertical: 24,
     backgroundColor: colors.background,
     borderRadius: 8,
@@ -184,21 +204,21 @@ const styles = StyleSheet.create({
   },
   counterValue: {
     fontSize: 48,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: colors.primary,
   },
   structureItem: {
     fontSize: 12,
     color: colors.text,
     marginBottom: 4,
-    fontFamily: 'monospace',
+    fontFamily: "monospace",
   },
   structureLabel: {
-    fontWeight: '600',
+    fontWeight: "600",
     color: colors.primary,
   },
   footer: {
-    alignItems: 'center',
+    alignItems: "center",
     paddingVertical: 24,
   },
   footerText: {
