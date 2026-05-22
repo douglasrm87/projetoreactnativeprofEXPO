@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// Componente principal da aplicação
 
+import React from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { StatusBar } from 'expo-status-bar';
+import { AppProvider } from './src/context';
+import Routes from './src/navigation';
+import { colors } from './src/styles/colors';
+
+/**
+ * Componente App - Ponto de entrada da aplicação
+ * 
+ * Estrutura:
+ * 1. GestureHandlerRootView - Necessário para gestos
+ * 2. AppProvider - Context API para estado global
+ * 3. Routes - Sistema de navegação
+ * 4. StatusBar - Barra de status
+ */
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <AppProvider>
+        <Routes />
+        <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
+      </AppProvider>
+    </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

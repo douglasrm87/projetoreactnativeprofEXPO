@@ -1,30 +1,33 @@
 {
   "expo": {
-    "name": "projetoreactnativeprofEXPO",
-    "slug": "projetoreactnativeprofEXPO",
+    "name": "Alô Mundo - React Native",
+    "slug": "alomundo-react-native",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
+    "newArchEnabled": false,
+    "scheme": "alomundo",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#6C63FF"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ads.alomundo"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#6C63FF"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "package": "com.ads.alomundo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Exemplo educacional de React Native com Expo para alunos de ADS"
   }
 }
